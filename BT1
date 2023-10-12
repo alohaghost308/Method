@@ -1,0 +1,80 @@
+package demo;
+import java.lang.Math;
+import java.util.Scanner;
+import java.util.TimeZone;
+import java.util.concurrent.ConcurrentHashMap.KeySetView;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.TimeZone;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Set;
+import java.util.HashSet;
+public class Demo {
+	
+	public static String[]VietHoa(String[] list,int n){
+		String[] listhoa = new String[n];
+		String str;
+		for(int i =0;i<n;i++) {
+			str = list[i];
+			listhoa[i]=str.toUpperCase();
+		}
+		return listhoa;	
+	}
+	
+	public static String[]SapXep(String[] lst){
+		int d1,d2;
+		String s1,s2,tg;
+		for(int i = 1 ; i<lst.length;i++) {
+			for (int j = 0;j<i;j++) {
+				s1=lst[i];
+				d1 = s1.length();
+				s2=lst[j];
+				d2 = s2.length();
+				if(d1>d2) {
+					tg=s2;s2=s1;s1=tg;
+					lst[i]=s1;
+					lst[j]=s2;
+				}
+			}
+		}
+		return lst;
+	}
+	
+	public static String[]Xuat(String[] list){
+		for(String l : list) {
+			System.out.println(l+" ");
+		}
+		return list;
+	} 
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int n;
+		String str;
+		System.out.println("nhap so phan tu:");
+		n= sc.nextInt();
+		String[] list = new String[n];
+		System.out.println("nhap chuoi:");
+		for(int i = 0; i<n;i++) {
+			list[i]=sc.nextLine();
+			
+		}
+		System.out.println("Viet hoa danh sach");
+		Xuat(VietHoa(list,n));
+		System.out.println("Sap xep danh sach theo do dai:");
+		Xuat(SapXep(list));
+		
+		
+}
+
+
+	
+}
+
