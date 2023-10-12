@@ -17,34 +17,52 @@ import java.util.Set;
 import java.util.HashSet;
 public class Demo {
 	
-	public static int[] Nhap(int n){
+	public static ArrayList<Integer>Nhap(int n){
 		Scanner scan = new Scanner(System.in);
-		int[] list= new int[n];
+		ArrayList<Integer> list = new ArrayList<Integer>(n);
 		for(int i = 0; i<n;i++) {
-			list[i]=scan.nextInt();
+			list.add(i, scan.nextInt());
 		}
 		return list;
 	}
 	
-	public static int[] SapXep(int[] list){
-		int d1,d2,tg;
-		for(int i = 1 ; i<list.length;i++) {
+	public static ArrayList<Integer> SapXep(ArrayList<Integer> list){
+		float d1,d2,tg;
+		for(int i = 1 ; i<list.size();i++) {
 			for (int j = 0;j<i;j++) {
-				d1=list[i];
-				d2=list[j];
-				if(d1>d2) {
+				d1=list.get(i);
+				d2=list.get(j);
+				if(Tb(d1)>Tb(d2)) {
 					tg=d2;d2=d1;d1=tg;
-					list[i]=d1;
-					list[j]=d2;
+					list.set(i,(int) d1);
+					list.set(i,(int) d2);
 				}
 			}
 		}
 		return list;
 	}
 	
-	public static void Xuat(int[] list){
-		for(int i =0;i<list.length;i++) {
-			System.out.println(list[i]);
+	public static float Tb(float a) {
+		float tong = 0;
+		float b;
+		float k;
+		int dem = 0;
+		float tb;
+		do {
+			b=a/10;
+			k=a%10;
+			tong = tong+k;
+			dem = dem+1;
+			a=b;
+			
+		} while (b!=0);
+		tb=(float)tong/(float)dem;
+		return tb;
+		
+	}
+	public static void Xuat(ArrayList<Integer> list){
+		for(int l : list) {
+			System.out.println(l);
 		}
 	} 
 	
